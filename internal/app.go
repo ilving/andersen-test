@@ -29,9 +29,11 @@ func (a *App) Run() error {
 			log.Printf("error on parse env APP_PORT. Error: %s. Server run on default port: %d", envParseErr, serverPort)
 		}
 	}
-
+	log.Println("server init")
 	server := http.New()
 	server.Run(serverPort)
+	log.Println("server run and ready to accept connection")
 	<-a.ctx.Done()
+	log.Println("get shutdown signal")
 	return server.Shutdown()
 }

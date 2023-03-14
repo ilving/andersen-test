@@ -1,4 +1,4 @@
-package app
+package main
 
 import (
 	"awesomeProject/internal"
@@ -18,6 +18,7 @@ func main() {
 	if err := app.Run(); err != nil {
 		log.Fatalln(err)
 	}
+	log.Println("application has been stopped")
 }
 
 func onSignal(stop context.CancelFunc) {
