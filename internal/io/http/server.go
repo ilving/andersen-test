@@ -1,7 +1,6 @@
 package http
 
 import (
-	"fmt"
 	"github.com/fasthttp/router"
 	"github.com/valyala/fasthttp"
 )
@@ -26,8 +25,8 @@ func New() *Server {
 	}
 }
 
-func (s *Server) Run(port int) {
-	go s.srv.ListenAndServe(fmt.Sprintf(":%d", port))
+func (s *Server) Run(host string) error {
+	return s.srv.ListenAndServe(host)
 }
 
 func (s *Server) Shutdown() error {
